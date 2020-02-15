@@ -1,0 +1,44 @@
+---
+title: "Milestone 2"
+author: "Ali Crump"
+date: "2/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+# Read in tidyverse library
+
+library(tidyverse)
+```
+
+```{r reading in data}
+# Reading in the replication data for crimes in boston and crimes in LA. I 
+# specify column types to get rid of error messages.
+
+
+boston <- read_csv("raw-data/weather_crimes_Boston.csv", 
+                   col_types = cols(.default = col_double(),
+                                    Date = col_date(format = ""),
+                                    Day_Wk = col_character(),
+                                    Season = col_character()))
+la <- read_csv("raw-data/weather_crimes_LA.csv", 
+               col_types = cols(.default = col_double(),
+                                 Date = col_date(format = ""),
+                                 Day_Wk = col_character(),
+                                 Season = col_character()))
+```
+
+```{r Milestone 2}
+# I did glimpse because I wanted to see all of the variables I might be working
+# with.
+
+boston %>% 
+  glimpse()
+
+la %>% 
+  glimpse()
+```
+
+
+Here's the link to my repo: [github.com](https://github.com/alicrump/Weather-and-Crime-Replication)
